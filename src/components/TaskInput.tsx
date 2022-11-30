@@ -15,7 +15,7 @@ interface Props {
 
 const Inputs: React.FC<Props> = ({task, setTask, handleAddTask, editTask, setEditTask}) => {
 
- useEffect(()=>{
+ useEffect(()  : void=>{
   if(editTask){
     setTask(editTask.task)
   }else{
@@ -24,15 +24,15 @@ const Inputs: React.FC<Props> = ({task, setTask, handleAddTask, editTask, setEdi
  },[setTask, editTask])
 
   return (
-    <form onSubmit={handleAddTask} className="flex gap-8 w-3/4 justify-center items-center mx-auto">
+    <form onSubmit={handleAddTask} className="flex flex-col md:flex-row gap-8 w-full lg:w-3/4  justify-center items-center mx-auto">
         <input 
-         className="w-2/5 p-3 rounded-md "
+         className="w-full md:w-2/5 p-3 rounded-md "
          type="text"
          value={task}
          onChange={(e)=>{setTask(e.target.value)}}
          required
          />
-         <button type="submit"  className="p-3 bg-[#1a73e8]  text-white rounded w-32">{editTask ? "Save" : "Add Task"}</button>
+         <button type="submit"  className="p-3 bg-[#1a73e8]  text-white rounded w-22 md:w-32">{editTask ? "Save" : "Add Task"}</button>
     </form>
   )
 }

@@ -14,7 +14,7 @@ interface Props {
 
 const TaskList:React.FC<Props> = ({tasks, setTasks, editTask, setEditTask}) => {
   return (
-    <div className="w-2/5 p-5 rounded-md shadow-md shadow-black">
+    <div className="w-full mx-5 md:w-3/5 lg:w-2/5 p-5 rounded-md shadow-md shadow-black">
       {tasks.map((task)=>(
         <Tasks 
         key={task.id} 

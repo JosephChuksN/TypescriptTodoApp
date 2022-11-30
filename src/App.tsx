@@ -10,12 +10,13 @@ const  App: React.FC = () => {
   const [task, setTask] = useState<string>("")
   const [editTask, setEdittask] = useState<Task | null>(null)
 
-const updateTasks = (task: string, id: number, isCompleted: boolean) =>{
+  const updateTasks = (task: string, id: number, isCompleted: boolean) : void =>{
      const updatedTask = tasks.map((tasks)=>(tasks.id === id ? {id, task, isCompleted}: tasks))
      setTasks(updatedTask)
      setEdittask(null)
   }
-  const handleAddTask = (e:React.FormEvent<EventTarget>)=>{
+  //handles submit
+  const handleAddTask = (e:React.FormEvent<EventTarget>) : void =>{
     e.preventDefault()
     if(!editTask){
       setTasks([...tasks, {id:Date.now(), task, isCompleted: false}])
@@ -30,8 +31,9 @@ const updateTasks = (task: string, id: number, isCompleted: boolean) =>{
   }
 
   return (
-    <div className="text-xl flex flex-col items-center  gap-10 mx-auto pt-10  bg-gradient-to-r from-[#0d1114] to-[#0c0f11] h-[100vh]">
-      <span className="text-5xl text-white font-semibold italic font-mono mb-10">Tasktivities</span>
+    
+    <div className="text-xl flex flex-col items-center px-3 gap-10 mx-auto pt-10  bg-gradient-to-r from-[#0d1114] to-[#0c0f11] h-[100vh]">
+      <span className=" text-3xl md:text-5xl text-white font-semibold italic font-mono mb-10">Tasktivities</span>
          <Inputs 
           task={task} 
           setTask={setTask} 
