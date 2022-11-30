@@ -6,13 +6,13 @@ interface Props{
   task:Task[],
   tasks:Task;
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>
-  editTask:{task:string, id:number, isCompleted:boolean} | null,
+  editTask:{task:string, id:string, isCompleted:boolean} | null,
   setEditTask: React.Dispatch<React.SetStateAction<Task | null>>
 }
 
 
 const Tasks:React.FC<Props> = ({tasks, task, setTasks, editTask, setEditTask}) => {
-const id:number= tasks.id
+const id:string= tasks.id
 
 
 

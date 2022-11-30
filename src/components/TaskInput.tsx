@@ -5,10 +5,10 @@ interface Props {
   task:string,
   setTask:React.Dispatch<React.SetStateAction<string>>,
   handleAddTask:(e:React.FormEvent<EventTarget>) => void,
-  editTask:{task:string, id:number, isCompleted:boolean} | null,
+  editTask:{task:string, id:string, isCompleted:boolean} | null,
   setEditTask: React.Dispatch<React.SetStateAction<{
     task:string,
-    id: number;
+    id: string;
     isCompleted: boolean;
 } | null>>
 }

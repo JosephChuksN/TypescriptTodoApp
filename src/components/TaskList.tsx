@@ -6,7 +6,7 @@ import Tasks from './Tasks'
 interface Props {
     tasks:Task[],
     setTasks: React.Dispatch<React.SetStateAction<Task[]>>
-    editTask:{task:string, id:number, isCompleted:boolean} | null,
+    editTask:{task:string, id:string, isCompleted:boolean} | null,
     setEditTask: React.Dispatch<React.SetStateAction<
       Task
    | null>>

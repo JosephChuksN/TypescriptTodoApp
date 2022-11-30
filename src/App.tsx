@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Task } from './model';
 import Inputs from './components/TaskInput';
 import TaskList from './components/TaskList';
+import { v4 as uuidv4 } from 'uuid';
 
 
 const  App: React.FC = () => {
@@ -10,7 +11,7 @@ const  App: React.FC = () => {
   const [task, setTask] = useState<string>("")
   const [editTask, setEdittask] = useState<Task | null>(null)
 
-  const updateTasks = (task: string, id: number, isCompleted: boolean) : void =>{
+  const updateTasks = (task: string, id: string, isCompleted: boolean) : void =>{
      const updatedTask = tasks.map((tasks)=>(tasks.id === id ? {id, task, isCompleted}: tasks))
      setTasks(updatedTask)
      setEdittask(null)
@@ -19,7 +20,7 @@ const  App: React.FC = () => {
   const handleAddTask = (e:React.FormEvent<EventTarget>) : void =>{
     e.preventDefault()
     if(!editTask){
-      setTasks([...tasks, {id:Date.now(), task, isCompleted: false}])
+      setTasks([...tasks, {id:uuidv4(), task, isCompleted: false}])
       setTask("")
       
     }else{
@@ -31,7 +32,7 @@ const  App: React.FC = () => {
   }
 
   return (
-    
+
     <div className="text-xl flex flex-col items-center px-3 gap-10 mx-auto pt-10  bg-gradient-to-r from-[#0d1114] to-[#0c0f11] h-[100vh]">
       <span className=" text-3xl md:text-5xl text-white font-semibold italic font-mono mb-10">Tasktivities</span>
          <Inputs 
