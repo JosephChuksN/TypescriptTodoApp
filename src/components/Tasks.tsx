@@ -1,6 +1,7 @@
 import React from 'react'
 import { Task } from '../model';
-import { TbEdit, TbCheck, TbTrash } from 'react-icons/tb'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'
 
 interface Props{
   task:Task[],
@@ -36,10 +37,10 @@ const handleDelete = () : void =>{
     <div className="bg-transparent flex gap-10 items-center justify-between  w-full text-white text-xl md:text-2xl py-5">
        <span>{tasks.isCompleted ? <s>{tasks.task}</s>: <span>{tasks.task}</span>}</span>
  
-    <div className="flex gap-5 text-white text-2xl">
-       <span onClick={handleCompleted}><TbCheck /></span>
-       <span onClick={handleTaskEdit}><TbEdit /></span>
-       <span onClick={handleDelete}><TbTrash /></span>
+    <div className="flex gap-10 text-white text-2xl">
+       <span onClick={handleCompleted}><FontAwesomeIcon icon={faCheck} /></span>
+       <span onClick={handleTaskEdit}><FontAwesomeIcon icon={faEdit} /></span>
+       <span onClick={handleDelete}><FontAwesomeIcon icon={faTrash} /></span>
     </div>
    </div>
    
